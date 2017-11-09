@@ -8,7 +8,7 @@ end tell
 
 tell application "Google Play Music Desktop Player"
 	if it is running then
-		do shell script "GPMDP_AUTH_KEY=b07e5d1f-45a1-4895-b6b5-836d942db614 /usr/local/bin/go run /Users/jsawczuk/Library/Scripts/gpmdp.go pause"
+		do shell script "GPMDP_AUTH_KEY=b07e5d1f-45a1-4895-b6b5-836d942db614 /Users/jsawczuk/go/bin/gpmdp pause"
 	end if
 end tell
 
