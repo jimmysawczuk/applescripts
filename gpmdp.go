@@ -78,6 +78,9 @@ func main() {
 	case "play":
 		err = play()
 
+	case "toggleshuffle":
+		err = toggleShuffle()
+
 	default:
 		// usage
 		err = errors.New("invalid subcommand")
@@ -224,6 +227,26 @@ func togglePlayState() error {
 	err = ws.ReadJSON(&target)
 	if err != nil {
 		return errors.Wrap(err, "togglePlayState")
+	}
+
+	return nil
+}
+
+func toggleShuffle() error {
+	err := ws.WriteJSON(writePayload{
+		Namespace: "playback",
+		Method:    "toggleShuffle",
+		Arguments: []interface{}{},
+		RequestID: 2,
+	})
+	if err != nil {
+		return errors.Wrap(err, "toggleShuffle")
+	}
+
+	target := writeReturn{}
+	err = ws.ReadJSON(&target)
+	if err != nil {
+		return errors.Wrap(err, "toggleShuffle")
 	}
 
 	return nil

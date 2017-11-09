@@ -12,3 +12,9 @@ tell application "System Events"
 		end if
 	end tell
 end tell
+
+tell application "Google Play Music Desktop Player"
+	if it is running then
+		do shell script "GPMDP_AUTH_KEY=b07e5d1f-45a1-4895-b6b5-836d942db614 /usr/local/bin/go run /Users/jsawczuk/Library/Scripts/gpmdp.go toggleshuffle"
+	end if
+end tell
